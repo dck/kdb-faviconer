@@ -29,7 +29,6 @@ else:
 
 try:
     os.mkdir("favicons")
-    os.chdir("favicons")
 except OSError:
     pass
 
