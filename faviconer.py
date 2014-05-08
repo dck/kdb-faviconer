@@ -6,6 +6,11 @@ import getpass
 import struct
 import string
 import random
+import urllib2
+import operator
+from StringIO import StringIO
+from multiprocessing.dummy import Pool
+from PIL import PngImagePlugin, Image, BmpImagePlugin
 
 from keepass import kpdb
 
