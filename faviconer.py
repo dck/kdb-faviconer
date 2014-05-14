@@ -102,8 +102,13 @@ def ico_to_png_data(data):
 def save_png(image, name):
     image.save("favicons/" + name + ".png")
 
+def save_raw(data, name):
+    with open("favicons/" + name + ".ico", "wb") as fh:
+        fh.write(data)
+
 def chain(input_value):
-    chain = (get_favicon, ico_to_png_data, lambda data: save_png(data, input_value[7:]))
+    #chain = (get_favicon, ico_to_png_data, lambda data: save_png(data, input_value[7:]))
+    chain = (get_favicon, lambda data: save_raw(data, input_value[7:]))
     try:
         reduce((lambda x, y: y(x)), chain, input_value)
     except Exception as e:
