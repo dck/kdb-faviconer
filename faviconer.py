@@ -112,6 +112,7 @@ def chain(input_value):
     try:
         reduce((lambda x, y: y(x)), chain, input_value)
     except Exception as e:
+        print e
         return
 
 try:
