@@ -132,6 +132,6 @@ except OSError:
 
 urls = [e.url for e in db.entries if e.url.startswith("http")]
 
-pool = Pool()
+pool = Pool(multiprocessing.cpu_count() * 2)
 
 pool.map(chain, urls)
