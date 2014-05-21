@@ -1,4 +1,4 @@
 kdb-faviconer
 =============
 
-Simple Python script for downloading and updating favicons for entries .kdb (KeePass) file
+Simple Python script to download favicons for entries in .kdb (KeePass) file
