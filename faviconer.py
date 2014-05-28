@@ -26,8 +26,7 @@ def get_favicon(url):
         data = urllib2.urlopen(url).read()
     except urllib2.URLError as e:
         print "Cant retrieve favicon for {}".format(url)
-        print e
-        return
+        raise
     return data
 
 def load_icon(file, index=None):
@@ -101,14 +100,15 @@ def ico_to_png_data(data):
     return image
 
 def save_png(image, name):
-    image.save("favicons/" + name)
+    image.save("favicons/" + name + ".png")
+
 
 
 def chain(input_value):
-    chain = (get_favicon, ico_to_png_data, lambda data: save_png(data, input_value[8:]))
+    chain = (get_favicon, ico_to_png_data, lambda data: save_png(data, input_value[7:]))
     try:
         reduce((lambda x, y: y(x)), chain, input_value)
-    except:
+    except Exception as e:
         return
 
 try:
