@@ -102,8 +102,6 @@ def ico_to_png_data(data):
 def save_png(image, name):
     image.save("favicons/" + name + ".png")
 
-
-
 def chain(input_value):
     chain = (get_favicon, ico_to_png_data, lambda data: save_png(data, input_value[7:]))
     try:
